@@ -12,7 +12,18 @@ df = pd.read_excel("Dry_Bean_Dataset.xlsx")
 #print(df.info())
 #print(df["Class"].value_counts())
 
-X = df.drop("Class", axis=1).values   #features and target
+#X = df.drop("Class", axis=1).values   #features and target
+
+selected_features = [
+    'Perimeter',
+    'ShapeFactor2',
+    'ShapeFactor1',
+    'ShapeFactor4',
+    'roundness'
+]
+
+X = df[selected_features].values
+
 y = df["Class"].values
 
 classes = np.unique(y)    #makes the classes to numbers from 0 - 6 
